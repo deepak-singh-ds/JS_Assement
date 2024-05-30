@@ -1,0 +1,56 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+const NFTs =[]
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT (_name,_sem,_section,_branch,_college) {
+   const NFT = {
+      "name" : _name,
+      "sem" : _sem,
+      "section" : _section,
+      "branch" :_branch,
+      "college" : _college,
+   }
+   NFTs.push(NFT);
+   console.log("Student: " +_name);
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs () {
+   for(let i = 0; i < NFTs.length; i++ )
+      {
+         console.log("\nID:\t\t" +(i +1));
+         console.log("Name: \t\t" + NFTs[i].name);
+         console.log("Semester: \t" +NFTs[i].sem);
+         console.log("Section: \t" +NFTs[i].section);
+         console.log("Branch: \t" +NFTs[i].branch);
+         console.log("College: \t" +NFTs[i].college);
+      }
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+   console.log("\n" + NFTs.length);
+}
+
+// call your functions below this line
+mintNFT("Deepak" ,4 ,605, "CSE", "Chandigarh University");
+mintNFT("Raju" ,4 ,611, "ESE", "Chandigarh University");
+mintNFT("Deep" ,4 ,601, "ME", "Chandigarh University");
+mintNFT("Deepa" ,4 ,907 ,"CSE", "Chandigarh University");
+mintNFT("Sankesh" ,4 ,804, "BCA", "Chandigarh University");
+mintNFT("Vishal" ,4 ,605, "MBA", "Chandigarh Group Of College");
+
+listNFTs();
+getTotalSupply();
